@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Receipt</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .receipt {
+        width: 600px;
+        margin: auto;
+      }
+      .header,
+      .footer {
+        text-align: center;
+      }
+      .items {
+        margin: 20px 0;
+      }
+      .item {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="receipt">
+      <div class="header">
+        <h1>Receipt</h1>
+        <p>{{date}}</p>
+      </div>
+      <div class="items">
+        {{#each items}}
+        <div class="item">
+          <span>{{name}}</span>
+          <span>{{price}}</span>
+        </div>
+        {{/each}}
+      </div>
+      <div class="footer">
+        <p>Total: {{total}}</p>
+      </div>
+    </div>
+  </body>
+</html>
