@@ -25,8 +25,20 @@ app.post("/generate-pdf", async (req, res) => {
   // Launch Puppeteer and generate PDF
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
+
+  await page.setViewport({ width: 1200, height: 800 });
+
   await page.setContent(html);
-  const pdf = await page.pdf({ format: "A4" });
+
+  const dimensions = await page.evaluate(() => {
+    const { width, height } = document.documentElement.getBoundingClientRect();
+    return { width, height };
+  });
+
+  const pdf = await page.pdf({
+    width: `${dimensions.width}px`,
+    height: `${dimensions.height}px`,
+  });
 
   await browser.close();
 
