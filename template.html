@@ -78,7 +78,7 @@
           />
         </div>
         <h1>Kvitto på parkering</h1>
-        <p>Utskriftsdatum: 2024-07-06 12:07</p>
+        <p>Utskriftsdatum: {{date}}</p>
         <table border="0">
           <tr>
             <th>Biljettnr</th>
@@ -91,33 +91,33 @@
             <th>Kostnad</th>
             <th>Moms Referens</th>
           </tr>
+          {{#each items}}
           <tr>
-            <td>211414225</td>
-            <td>EDB935</td>
-            <td>2024-03-09 15:01 - 2024-03-09 16:00</td>
-            <td>1h</td>
-            <td>
-              Töpelsgatan 7 (GLTK dygnet runt) - Västia Parkering AB Göteborg
-            </td>
-            <td></td>
-            <td></td>
-            <td>12,00 kr</td>
-            <td>25%</td>
+            <td>{{ticketNumber}}</td>
+            <td>{{regnr}}</td>
+            <td>{{validFrom}} - {{validTo}}</td>
+            <td>{{length}}</td>
+            <td>{{parking}}</td>
+            <td>{{providor}}</td>
+            <td>{{ticketType}}</td>
+            <td>{{cost}} kr</td>
+            <td>{{vat}}%</td>
           </tr>
+          {{/each}}
         </table>
         <div class="final">
           <table border="0" class="finalTable">
             <tr>
               <th>Nettobelopp 25 %:</th>
-              <td>9.60 kr</td>
+              <td>{{netAmount}} kr</td>
             </tr>
             <tr>
               <th>Moms 25 %:</th>
-              <td>2.40 kr</td>
+              <td>{{vatAmount}} kr</td>
             </tr>
             <tr>
               <th>Brutto:</th>
-              <td>12.00 kr</td>
+              <td>{{grossAmount}} kr</td>
             </tr>
           </table>
         </div>
