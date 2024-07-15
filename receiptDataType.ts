@@ -12,11 +12,19 @@ export type ReceiptItemType = {
   vat: number;
 };
 
+export type FeeTypes = {
+  total: number;
+  excludingVat: number;
+  vat: number;
+};
+
 export type ReceiptDataType = {
   id: string;
   date: string;
   items: ReceiptItemType[];
-  netAmount: number;
-  vatAmount: number;
-  grossAmount: number;
+  parkingFee: FeeTypes;
+  serviceCharge: FeeTypes;
+  subjectAmount: number;
+  totalVat: number;
+  totalAmount: number;
 };

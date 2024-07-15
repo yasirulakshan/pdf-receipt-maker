@@ -43,13 +43,25 @@
         flex-direction: column;
         padding-top: 15;
       }
-      .finalTable {
-        width: 30%;
+      .final-values-container {
+        width: 400px;
+        margin-top: 20px;
       }
-      .finalTable th {
-        text-align: right;
-        border: none;
+
+      .final-values-container ul {
+        padding-top: 0px;
+        margin-top: 0px;
       }
+
+      .final-values-container li {
+        padding-top: 8px;
+      }
+
+      .final-header {
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+      }
+
       .footer {
         display: flex;
         justify-content: space-between;
@@ -106,40 +118,58 @@
           {{/each}}
         </table>
         <div class="final">
-          <table border="0" class="finalTable">
-            <tr>
-              <th>Nettobelopp 25 %:</th>
-              <td>{{netAmount}} kr</td>
-            </tr>
-            <tr>
-              <th>Moms 25 %:</th>
-              <td>{{vatAmount}} kr</td>
-            </tr>
-            <tr>
-              <th>Brutto:</th>
-              <td>{{grossAmount}} kr</td>
-            </tr>
-          </table>
+          <div class="final-values-container">
+            <p class="final-header"><strong>PRISINFORMATION</strong></p>
+            <ul>
+              <li>
+                <strong>Parkeringsavgift: </strong>{{parkingFee.total}} kr
+                <ul>
+                  <li>Exklusive moms (25%): {{parkingFee.excludingVat}} kr</li>
+                  <li>Moms (25%): {{parkingFee.vat}} kr</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Serviceavgift : </strong>{{serviceCharge.total}} kr
+                <ul>
+                  <li>
+                    Exklusive moms (25%): {{serviceCharge.excludingVat}} kr
+                  </li>
+                  <li>Moms (25%): {{serviceCharge.vat}} kr</li>
+                </ul>
+              </li>
+            </ul>
+            <p class="final-header">
+              <strong
+                >Momspliktigt belopp (exklusive moms): {{subjectAmount}}
+                kr</strong
+              >
+            </p>
+            <p class="final-header">
+              <strong> Totalt moms (25%): {{totalVat}} kr </strong>
+            </p>
+            <p class="total"><strong> Totalt :</strong> {{totalAmount}} kr</p>
+          </div>
         </div>
       </div>
 
       <div class="footer">
         <div>
-          <p>Adress</p>
-          <p>Parkster AB</p>
-          <p>Lilla Fiskaregatan 2</p>
-          <p>222 22 Lund</p>
+          <p>Adress:</p>
+          <p>Parkio AB</p>
+          <p>Ostindiefararen 67</p>
+          <p>417 65 Göteborg</p>
         </div>
         <div>
           <p>Telefon</p>
-          <p>0775-33 30 30</p>
-          <p>E-post</p>
-          <p>kundtjanst@parkster.se</p>
+          <p>010-265 01 01</p>
+          <p>E-post:</p>
+          <p><a href="mailto:support@parkioapp.se">support@parkioapp.se</a></p>
         </div>
 
         <div>
-          <p>MomsReg: SE556862584101</p>
-          <p>Innehavare av F-Skattebevis</p>
+          <p>Momsregistreringsnummer: SE559444931501</p>
+          <p>Org.nr: 559444-9315</p>
+          <p>Innehavare av F-Skattbevis</p>
         </div>
       </div>
     </div>

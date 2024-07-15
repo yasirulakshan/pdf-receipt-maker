@@ -47,7 +47,17 @@ export const dummyReceipt: ReceiptDataType = {
       vat: 25,
     },
   ],
-  netAmount: 88 + 104 + 76,
-  vatAmount: 22 + 26 + 19,
-  grossAmount: 110 + 130 + 95,
+  parkingFee: {
+    total: 335,
+    excludingVat: 335,
+    vat: 75,
+  },
+  serviceCharge: {
+    total: 0,
+    excludingVat: 0,
+    vat: 0,
+  },
+  subjectAmount: 335,
+  totalVat: 75,
+  totalAmount: 410,
 };
